@@ -11,8 +11,8 @@ from music import serializers
 class MusicList(APIView):
 
     def get(self, request):
-        all_music = Music.Objects.all()
-        serializer = MusicSerializer(music, many=True)
+        all_music = Music.objects.all()
+        serializer = MusicSerializer(all_music, many=True)
         return Response(serializer.data, status=status.HTTP_200_OK)
 
     def post(self, request):
